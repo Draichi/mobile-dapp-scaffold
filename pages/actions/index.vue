@@ -1,7 +1,7 @@
 <template>
   <div class="container overflow-x-hidden">
     <div>
-      <h1 class="title">Earnings</h1>
+      <h1 class="title">Actions</h1>
     </div>
     <div class="graphs">
       <LineChartTile
