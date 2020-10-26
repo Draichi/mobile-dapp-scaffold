@@ -45,7 +45,7 @@ jobs:
         run: yarn
 
       - name: Run linter 👀
-        run: yarn lint
+        run: yarn prettier --check .
 
       - name: Run tests 🧪
         run: yarn test
