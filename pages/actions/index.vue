@@ -1,21 +1,14 @@
 <template>
   <div class="container overflow-x-hidden">
     <div>
-      <h1 class="title">Earnings</h1>
+      <h1 class="title">Actions</h1>
     </div>
-    <div class="graphs">
-      <LineChartTile
-        v-for="(chartTile, i) in chartTiles"
-        :key="`chart-tile-${i}`"
-        :graph-data="chartTile.graphData"
-        :background-color="chartTile.backgroundColor"
+    <div class="coins-list">
+      <ActionListHeader/>
+      <ActionListItem
+        v-for="(actionItem, i) in actionList"
+        :key="`action-item-${i}`"
       />
-    </div>
-    <div>
-      <h1 class="title">Portfolio</h1>
-      <div class="p-16">
-        <DoughtChart :data="portfolioData" />
-      </div>
     </div>
   </div>
 </template>
@@ -25,12 +18,12 @@ import { Vue, Component } from 'vue-property-decorator'
 
 @Component({
   components: {
-    LineChartTile: () => import('@/components/Earnings/LineChartTile.vue'),
-    DoughtChart: () => import('@/components/Charts/DoughtChart'),
+    ActionListHeader: () => import('@/components/Actions/ActionListHeader.vue'),
+    ActionListItem: () => import('@/components/Actions/ActionListItem.vue'),
   },
 })
 export default class Index extends Vue {
-  portfolioData = {
+  actionList = {
     labels: ['January', 'February', 'March', 'April', 'lucsa', 'draichi'],
     datasets: [
       {
