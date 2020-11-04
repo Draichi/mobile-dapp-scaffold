@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <div class="flex justify-around">
+  <div class="">
+    <div class="text-center grid grid-cols-3">
       <h4>Coin</h4>
       <h4>Status</h4>
       <h4>Rate</h4>

@@ -13,8 +13,8 @@
     </div>
     <div>
       <h1 class="title">Portfolio</h1>
-      <div class="p-16">
-        <DoughtChart :data="portfolioData" />
+      <div class="px-16">
+        <DoughtChart :data="portfolioData" :options="options" />
       </div>
     </div>
   </div>
@@ -30,6 +30,12 @@ import { Vue, Component } from 'vue-property-decorator'
   },
 })
 export default class Index extends Vue {
+  options = {
+    responsive: true,
+    legend: {
+      position: 'right',
+    },
+  }
   portfolioData = {
     labels: ['January', 'February', 'March', 'April', 'lucsa', 'draichi'],
     datasets: [
@@ -71,6 +77,18 @@ export default class Index extends Vue {
         ],
       },
       backgroundColor: 'red',
+    },
+    {
+      graphData: {
+        labels: ['January', 'February', 'March', 'April'],
+        datasets: [
+          {
+            label: 'GitHub Commits',
+            data: [20, 90, 20, 39],
+          },
+        ],
+      },
+      backgroundColor: 'blue',
     },
   ]
 }

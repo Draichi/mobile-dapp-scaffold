@@ -8,6 +8,7 @@
       <ActionListItem
         v-for="(actionItem, i) in actionList"
         :key="`action-item-${i}`"
+        :actionItem="actionItem"
       />
     </div>
   </div>
@@ -15,6 +16,7 @@
 
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'
+import { IAction } from 'types/IAction'
 
 @Component({
   components: {
@@ -23,7 +25,22 @@ import { Vue, Component } from 'vue-property-decorator'
   },
 })
 export default class Index extends Vue {
-  actionList = {
+  actionList: IAction[] = [
+    {
+      icon:
+        'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Ethereum-icon-purple.svg/1200px-Ethereum-icon-purple.svg.png',
+      coin: 'ETH',
+      type: 'buy',
+      rate: 0.235,
+    },
+    {
+      icon: 'https://www.altbags.com/wp-content/uploads/2020/08/Chainlink.jpg',
+      coin: 'LINK',
+      type: 'sell',
+      rate: 0.4,
+    },
+  ]
+  actionList_ = {
     labels: ['January', 'February', 'March', 'April', 'lucsa', 'draichi'],
     datasets: [
       {

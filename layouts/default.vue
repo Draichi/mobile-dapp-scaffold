@@ -24,8 +24,10 @@ export default class Default extends Vue {}
 .layout-container {
   @apply mx-auto bg-gray-300;
   max-width: 512px;
+  margin-bottom: 60px;
 }
 html {
+  background: #84919e;
   font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
     Roboto, 'Helvetica Neue', Arial, sans-serif;
   word-spacing: 1em;

@@ -40,12 +40,12 @@ export default class LineChartTile extends Vue {
   letter-spacing: 1px;
 }
 .graph-tile {
-  @apply inline-block w-2/3 mx-1 rounded-2xl;
+  @apply inline-block w-2/4 mx-2 rounded-2xl;
 }
 
 #my-earings-chart {
   width: 80% !important;
   margin: auto;
-  height: 19em;
+  height: 23vh;
 }
 </style>
