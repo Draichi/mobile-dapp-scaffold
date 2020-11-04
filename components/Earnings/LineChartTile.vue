@@ -22,7 +22,7 @@ export default class LineChartTile extends Vue {
   get classObject(): object {
     return {
       'bg-red-500': this.backgroundColor === 'red',
-      'bg-blue-500': this.backgroundColor === 'blue'
+      'bg-blue-500': this.backgroundColor === 'blue',
     }
   }
 }

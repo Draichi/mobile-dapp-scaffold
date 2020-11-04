@@ -3,33 +3,33 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component, Prop } from 'vue-property-decorator';
+import { Vue, Component, Prop } from 'vue-property-decorator'
 
 @Component
 export default class Ripple extends Vue {
   @Prop({ default: 0, required: true })
-  positionX!: number;
+  positionX!: number
 
   @Prop({ default: 0, required: true })
-  positionY!: number;
+  positionY!: number
 
   @Prop({ default: 0, required: true })
-  width!: number;
+  width!: number
 
   get styleObject() {
     return {
       left: this.positionX + 'px',
-      top: this.positionY + 'px'
-    };
+      top: this.positionY + 'px',
+    }
   }
 
   mounted() {
-    const element = <HTMLElement>this.$el;
+    const element = <HTMLElement>this.$el
 
     setTimeout(() => {
-      element.style.opacity = '0';
-      element.style.transform = `scale(${this.width})`;
-    }, 10);
+      element.style.opacity = '0'
+      element.style.transform = `scale(${this.width})`
+    }, 10)
   }
 }
 </script>

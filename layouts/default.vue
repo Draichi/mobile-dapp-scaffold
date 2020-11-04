@@ -4,7 +4,7 @@
       <Nuxt />
     </main>
     <client-only>
-      <NavigationMenu/>
+      <NavigationMenu />
     </client-only>
   </div>
 </template>

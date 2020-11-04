@@ -4,7 +4,7 @@
       <h1 class="title">Actions</h1>
     </div>
     <div class="coins-list">
-      <ActionListHeader/>
+      <ActionListHeader />
       <ActionListItem
         v-for="(actionItem, i) in actionList"
         :key="`action-item-${i}`"

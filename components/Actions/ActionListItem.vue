@@ -15,5 +15,4 @@ import { Vue, Component } from 'vue-property-decorator'
 export default class ActionListItem extends Vue {}
 </script>
 
-<style lang="postcss">
-</style>
+<style lang="postcss"></style>

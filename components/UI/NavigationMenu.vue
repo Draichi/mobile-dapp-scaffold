@@ -51,36 +51,37 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component } from 'vue-property-decorator';
+import { Vue, Component } from 'vue-property-decorator'
 @Component({
   components: {
-    BottomNavigationItem: () => import('@/components/UI/NavigationMenuItem.vue')
-  }
+    BottomNavigationItem: () =>
+      import('@/components/UI/NavigationMenuItem.vue'),
+  },
 })
 export default class BottomNavigation extends Vue {
-  focusedItem: string | null = null;
+  focusedItem: string | null = null
   get avatarUrl(): string {
-    return this.$store.getters['profile/avatar'] || '';
+    return this.$store.getters['profile/avatar'] || ''
   }
   scrollToTop(routeName: string) {
     if (this.$route.name === routeName) {
-      const contentElement = document.getElementById('content') as HTMLElement;
+      const contentElement = document.getElementById('content') as HTMLElement
       contentElement &&
         contentElement.scrollTo({
           top: 0,
           behavior: 'smooth',
-        });
+        })
     }
   }
   onFocus(focusedItem: string) {
-    this.focusedItem = focusedItem;
+    this.focusedItem = focusedItem
   }
   onBlur(bluredItem: string) {
     setTimeout(() => {
       if (this.focusedItem === bluredItem) {
-        this.focusedItem = null;
+        this.focusedItem = null
       }
-    }, 300);
+    }, 300)
   }
 }
 </script>
