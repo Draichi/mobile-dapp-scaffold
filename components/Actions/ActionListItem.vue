@@ -2,11 +2,7 @@
   <div>
     <div class="grid grid-cols-3 text-center mt-3 rounded py-1 bg-gray-400">
       <div class="flex items-center justify-evenly">
-        <img
-          :src="actionItem.icon"
-          alt=""
-          class="h-8 w-8 rounded-full"
-        />
+        <img :src="actionItem.icon" alt="" class="h-8 w-8 rounded-full" />
         <h4>{{ actionItem.coin }}</h4>
       </div>
       <div
@@ -54,7 +50,7 @@ export default class ActionListItem extends Vue {
     return {
       datasets: [
         {
-          data: [ 1 - this.actionItem.rate, this.actionItem.rate],
+          data: [1 - this.actionItem.rate, this.actionItem.rate],
           borderColor: ['#fd5d93', '#36a2eb', '#cc65fe', '#ffce56'], // #fd5d93 pink option
           borderWidth: 2,
           backgroundColor: [

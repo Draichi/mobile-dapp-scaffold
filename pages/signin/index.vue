@@ -4,7 +4,7 @@
       <h2>Sign in to the wait list</h2>
     </div>
     <div>
-      <input type="text">
+      <input type="text" />
     </div>
   </div>
 </template>
@@ -13,8 +13,7 @@
 import { Vue, Component } from 'vue-property-decorator'
 
 @Component
-export default class Index extends Vue {
-}
+export default class Index extends Vue {}
 </script>
 
 <style lang="postcss">
@@ -22,5 +21,4 @@ export default class Index extends Vue {
   margin: auto;
   min-height: 100vh;
 }
-
 </style>
