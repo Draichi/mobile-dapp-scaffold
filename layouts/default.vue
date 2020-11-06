@@ -21,16 +21,17 @@ export default class Default extends Vue {}
 </script>
 
 <style lang="postcss">
+:root {
+  --color: red;
+  --bg-color: #e2e8f0;
+}
 .layout-container {
-  @apply mx-auto bg-gray-300;
+  @apply antialiased mx-auto;
   max-width: 512px;
   margin-bottom: 60px;
-}
-html {
-  background: #84919e;
-  font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, 'Helvetica Neue', Arial, sans-serif;
-  word-spacing: 1em;
+  background: var(--bg-color);
+  font-family: 'Source Sans Pro', 'Segoe UI', Roboto, 'Helvetica Neue',
+    sans-serif;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   -moz-osx-font-smoothing: grayscale;

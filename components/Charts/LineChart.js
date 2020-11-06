@@ -3,7 +3,7 @@ import { Line } from 'vue-chartjs'
 export default {
   extends: Line,
   props: {
-    data: Object,
+    chartData: Object,
   },
   mounted() {
     const ctx = document.getElementById('line-chart').getContext('2d')
@@ -11,27 +11,28 @@ export default {
     gradient.addColorStop(1, 'rgba(76, 211, 150, 0.3)')
     gradient.addColorStop(0.5, 'rgba(53, 183, 125, 0.05)')
     gradient.addColorStop(0, 'rgba(119,52,169,0.01)')
-    this.data.datasets[0].backgroundColor = gradient
-    this.data.datasets[0].pointStyle = 'line'
-    this.data.datasets[0].fill = true
-    this.data.datasets[0].borderColor = '#42b883'
-    this.data.datasets[0].borderWidth = 2
-    this.data.datasets[0].borderDash = []
-    this.data.datasets[0].borderDashOffset = 0.0
-    this.data.datasets[0].pointBackgroundColor = '#42b883'
-    this.data.datasets[0].pointBorderColor = 'rgba(255,255,255,0)'
-    this.data.datasets[0].pointHoverBackgroundColor = '#42b883'
-    this.data.datasets[0].pointBorderWidth = 20
-    this.data.datasets[0].pointHoverRadius = 4
-    this.data.datasets[0].pointHoverBorderWidth = 15
-    this.data.datasets[0].pointRadius = 4
-    this.renderChart(this.data, {
+    this.chartData.datasets[0].backgroundColor = gradient
+    this.chartData.datasets[0].pointStyle = 'line'
+    this.chartData.datasets[0].fill = true
+    this.chartData.datasets[0].borderColor = '#42b883'
+    this.chartData.datasets[0].borderWidth = 2
+    this.chartData.datasets[0].borderDash = []
+    this.chartData.datasets[0].borderDashOffset = 0.0
+    this.chartData.datasets[0].pointBackgroundColor = '#42b883'
+    this.chartData.datasets[0].pointBorderColor = 'rgba(255,255,255,0)'
+    this.chartData.datasets[0].pointHoverBackgroundColor = '#42b883'
+    this.chartData.datasets[0].pointBorderWidth = 20
+    this.chartData.datasets[0].pointHoverRadius = 4
+    this.chartData.datasets[0].pointHoverBorderWidth = 15
+    this.chartData.datasets[0].pointRadius = 4
+    this.renderChart(this.chartData, {
       responsive: true,
       maintainAspectRatio: false,
       legend: {
         display: false,
       },
       tooltips: {
+        enabled: false,
         backgroundColor: '#f5f5f5',
         titleFontColor: '#333',
         bodyFontColor: '#666',

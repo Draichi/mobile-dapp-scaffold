@@ -10,8 +10,9 @@
         :graph-data="chartTile.graphData"
         :background-color="chartTile.backgroundColor"
       />
+      <AddNewChartTile/>
     </div>
-    <div>
+    <div class="bottom-tile">
       <h1 class="title">Portfolio</h1>
       <div class="px-16">
         <DoughtChart :data="portfolioData" :options="options" />
@@ -26,6 +27,7 @@ import { Vue, Component } from 'vue-property-decorator'
 @Component({
   components: {
     LineChartTile: () => import('@/components/Earnings/LineChartTile.vue'),
+    AddNewChartTile: () => import('@/components/Earnings/AddNewChartTile.vue'),
     DoughtChart: () => import('@/components/Charts/DoughtChart'),
   },
 })
@@ -34,21 +36,36 @@ export default class Index extends Vue {
     responsive: true,
     legend: {
       position: 'right',
+      labels: {
+        boxWidth: 15
+      }
     },
   }
   portfolioData = {
-    labels: ['January', 'February', 'March', 'April', 'lucsa', 'draichi'],
+    labels: ['BTC', 'LINIK', 'AAVE', 'EWT', 'REN', 'MKR', 'DAI'],
     datasets: [
       {
-        label: 'GitHub Commits',
-        data: [40, 20, 12, 39, 51, 42],
-        borderColor: ['#fd5d93', '#36a2eb', '#cc65fe', '#ffce56'], // #fd5d93 pink option
-        borderWidth: 2,
+        data: [40, 20, 12, 39, 51, 42, 55],
+        borderColor: [
+          'rgb(253, 93, 147)',
+          'rgb(54, 162, 235)',
+          'rgb(204, 101, 254)',
+          'rgb(255, 206, 86)',
+          'rgb(93, 164, 253)',
+          'rgb(118, 253, 93)',
+          'rgb(132, 93, 253)',
+          'rgb(32, 6, 243)',
+        ],
+        borderWidth: 0,
         backgroundColor: [
-          'rgba(253, 93, 147,0.1)',
-          'rgba(54, 162, 235, 0.1)',
-          'rgba(204, 101, 254, 0.1)',
-          'rgba(255, 206, 86, 0.1)',
+          'rgba(253, 93, 147,0.5)',
+          'rgba(54, 162, 235, 0.5)',
+          'rgba(204, 101, 254, 0.5)',
+          'rgba(255, 206, 86, 0.5)',
+          'rgba(93, 164, 253,0.5)',
+          'rgba(118, 253, 93,0.5)',
+          'rgba(132, 93, 253,0.5)',
+          'rgba(32, 6, 243,0.5)',
         ],
       },
     ],
@@ -56,7 +73,9 @@ export default class Index extends Vue {
   chartTiles = [
     {
       graphData: {
-        labels: ['January', 'February', 'March', 'April'],
+        title: 'AI',
+        performance: 3.5,
+        labels: ['', '', '', ''],
         datasets: [
           {
             label: 'GitHub Commits',
@@ -68,37 +87,36 @@ export default class Index extends Vue {
     },
     {
       graphData: {
-        labels: ['January', 'February', 'March', 'April'],
+        title: 'Hold',
+        performance: 0.5,
+        labels: ['', '', '', ''],
         datasets: [
           {
             label: 'GitHub Commits',
-            data: [20, 90, 20, 39],
+            data: [20, 31, 20, 17],
           },
         ],
       },
       backgroundColor: 'red',
     },
-    {
-      graphData: {
-        labels: ['January', 'February', 'March', 'April'],
-        datasets: [
-          {
-            label: 'GitHub Commits',
-            data: [20, 90, 20, 39],
-          },
-        ],
-      },
-      backgroundColor: 'blue',
-    },
   ]
 }
 </script>
 
-<style lang="postcss">
+<style lang="postcss" scoped>
 .container {
   margin: 0 auto;
-  min-height: 100vh;
+  min-height: calc(100vh - 60px);
   justify-content: center;
+}
+
+.bottom-tile {
+  @apply bg-white mt-4;
+  border-radius: 3.5em 3.5em 0 0;
+  background: linear-gradient(to bottom, #fff, var(--bg-color));
+  & h1 {
+    padding: 1em 0 0 1em;
+  }
 }
 
 .title {

@@ -11,6 +11,7 @@
         :actionItem="actionItem"
       />
     </div>
+    <BottomButton />
   </div>
 </template>
 
@@ -22,6 +23,7 @@ import { IAction } from 'types/IAction'
   components: {
     ActionListHeader: () => import('@/components/Actions/ActionListHeader.vue'),
     ActionListItem: () => import('@/components/Actions/ActionListItem.vue'),
+    BottomButton: () => import('@/components/Actions/BottomButton.vue'),
   },
 })
 export default class Index extends Vue {
@@ -38,6 +40,45 @@ export default class Index extends Vue {
       coin: 'LINK',
       type: 'sell',
       rate: 0.4,
+    },
+    {
+      icon:
+        'https://blog.kraken.com/wp-content/uploads/2019/11/k-dai-2400x1350.png',
+      coin: 'DAI',
+      type: 'hold',
+      rate: 0.35,
+    },
+    {
+      icon: 'https://s2.coinmarketcap.com/static/img/coins/200x200/5268.png',
+      coin: 'EWT',
+      type: 'sell',
+      rate: 0.147,
+    },
+    {
+      icon:
+        'https://s2.coinmarketcap.com/static/img/coins/200x200/1637.png',
+      coin: 'RLC',
+      type: 'buy',
+      rate: 0.1,
+    },
+    {
+      icon: 'https://assets.coingecko.com/coins/images/12171/large/aJGBjJFU_400x400.jpg?1597804776',
+      coin: 'DOT',
+      type: 'sell',
+      rate: 0.6,
+    },
+    {
+      icon:
+        'https://icodrops.com/wp-content/uploads/2017/10/aave_logo.jpg',
+      coin: 'AAVE',
+      type: 'hold',
+      rate: 0.04,
+    },
+    {
+      icon: 'https://s2.coinmarketcap.com/static/img/coins/200x200/5692.png',
+      coin: 'COMP',
+      type: 'hold',
+      rate: 0.02,
     },
   ]
   actionList_ = {
@@ -86,10 +127,10 @@ export default class Index extends Vue {
 }
 </script>
 
-<style lang="postcss">
+<style lang="postcss" scoped>
 .container {
   margin: 0 auto;
-  min-height: 100vh;
+  min-height: calc(100vh - 60px);
   justify-content: center;
 }
 

@@ -7,10 +7,21 @@
       </div>
       <div
         class="flex items-center justify-center border-l-2 border-r-2 border-gray-500"
+        :class="{
+          buy: actionItem.type === 'buy',
+          sell: actionItem.type === 'sell',
+        }"
       >
         <h4 class="capitalize">{{ actionItem.type }}</h4>
       </div>
-      <div class="flex items-center justify-evenly">
+      <div
+        v-if="actionItem.type === 'hold'"
+        class="flex items-center justify-center my-1"
+        style="height: 40px"
+      >
+        -
+      </div>
+      <div v-else class="flex items-center justify-evenly">
         <div class="py-1">
           <DoughtChart
             :data="portfolioData"
@@ -50,14 +61,11 @@ export default class ActionListItem extends Vue {
     return {
       datasets: [
         {
-          data: [1 - this.actionItem.rate, this.actionItem.rate],
-          borderColor: ['#fd5d93', '#36a2eb', '#cc65fe', '#ffce56'], // #fd5d93 pink option
+          data: [this.actionItem.rate, 1 - this.actionItem.rate],
+          borderColor: ['#36a2eb'], // #fd5d93 pink option
           borderWidth: 2,
           backgroundColor: [
-            'rgba(253, 93, 147,0.1)',
             'rgba(54, 162, 235, 0.1)',
-            'rgba(204, 101, 254, 0.1)',
-            'rgba(255, 206, 86, 0.1)',
           ],
         },
       ],
@@ -66,4 +74,13 @@ export default class ActionListItem extends Vue {
 }
 </script>
 
-<style lang="postcss"></style>
+<style lang="postcss" scoped>
+.sell {
+  background: #f3aeae;
+  color: #4e1919;
+}
+.buy {
+  background: #b7ff99;
+  color: #2b4e19;
+}
+</style>

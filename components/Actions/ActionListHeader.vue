@@ -3,7 +3,7 @@
     <div class="text-center grid grid-cols-3">
       <h4>Coin</h4>
       <h4>Status</h4>
-      <h4>Rate</h4>
+      <h4>Strength</h4>
     </div>
   </div>
 </template>

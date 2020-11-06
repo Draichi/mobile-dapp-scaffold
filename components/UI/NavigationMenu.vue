@@ -14,7 +14,7 @@
           @blur="onBlur"
           @focus="onFocus"
         >
-          <font-awesome-icon icon="chart-line" aria-hidden="true" />
+          <font-awesome-icon icon="tachometer-alt" aria-hidden="true" />
         </BottomNavigationItem>
       </li>
       <li role="none">
@@ -29,7 +29,7 @@
           @blur="onBlur"
           @focus="onFocus"
         >
-          <font-awesome-icon icon="user-secret" aria-hidden="true" />
+          <font-awesome-icon icon="plus-square" aria-hidden="true" />
         </BottomNavigationItem>
       </li>
       <li role="none">
