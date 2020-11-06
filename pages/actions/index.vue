@@ -1,42 +1,46 @@
 <template>
   <div class="container overflow-x-hidden">
     <div>
-      <h1 class="title">Earnings</h1>
+      <h1 class="title">Actions</h1>
     </div>
-    <div class="graphs">
-      <LineChartTile
-        v-for="(chartTile, i) in chartTiles"
-        :key="`chart-tile-${i}`"
-        :graph-data="chartTile.graphData"
-        :background-color="chartTile.backgroundColor"
+    <div class="coins-list">
+      <ActionListHeader />
+      <ActionListItem
+        v-for="(actionItem, i) in actionList"
+        :key="`action-item-${i}`"
+        :actionItem="actionItem"
       />
-    </div>
-    <div>
-      <h1 class="title">Portfolio</h1>
-      <div class="px-16">
-        <DoughtChart :data="portfolioData" :options="options" />
-      </div>
     </div>
   </div>
 </template>
 
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'
+import { IAction } from 'types/IAction'
 
 @Component({
   components: {
-    LineChartTile: () => import('@/components/Earnings/LineChartTile.vue'),
-    DoughtChart: () => import('@/components/Charts/DoughtChart'),
+    ActionListHeader: () => import('@/components/Actions/ActionListHeader.vue'),
+    ActionListItem: () => import('@/components/Actions/ActionListItem.vue'),
   },
 })
 export default class Index extends Vue {
-  options = {
-    responsive: true,
-    legend: {
-      position: 'right',
+  actionList: IAction[] = [
+    {
+      icon:
+        'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Ethereum-icon-purple.svg/1200px-Ethereum-icon-purple.svg.png',
+      coin: 'ETH',
+      type: 'buy',
+      rate: 0.235,
     },
-  }
-  portfolioData = {
+    {
+      icon: 'https://www.altbags.com/wp-content/uploads/2020/08/Chainlink.jpg',
+      coin: 'LINK',
+      type: 'sell',
+      rate: 0.4,
+    },
+  ]
+  actionList_ = {
     labels: ['January', 'February', 'March', 'April', 'lucsa', 'draichi'],
     datasets: [
       {
@@ -77,18 +81,6 @@ export default class Index extends Vue {
         ],
       },
       backgroundColor: 'red',
-    },
-    {
-      graphData: {
-        labels: ['January', 'February', 'March', 'April'],
-        datasets: [
-          {
-            label: 'GitHub Commits',
-            data: [20, 90, 20, 39],
-          },
-        ],
-      },
-      backgroundColor: 'blue',
     },
   ]
 }

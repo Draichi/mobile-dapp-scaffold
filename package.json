@@ -8,14 +8,23 @@
     "start": "nuxt-ts start",
     "generate": "nuxt-ts generate",
     "test": "jest",
-    "lint": "prettier --write ."
+    "lint": "prettier --check .",
+    "lint:fix": "prettier --write .",
+    "deploy": "nuxt-ts build && nuxt-ts generate && npx push-dir --dir=dist --branch=gh-pages --cleanup"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.32",
+    "@fortawesome/free-solid-svg-icons": "^5.15.1",
+    "@fortawesome/vue-fontawesome": "2",
     "@nuxt/typescript-runtime": "^2.0.0",
     "@nuxtjs/axios": "^5.12.2",
     "@nuxtjs/pwa": "^3.0.2",
+    "chart.js": "^2.9.4",
     "core-js": "^3.6.5",
-    "nuxt": "^2.14.6"
+    "nuxt": "^2.14.6",
+    "vue-chartjs": "^3.5.1",
+    "vue-class-component": "^7.2.6",
+    "vue-property-decorator": "^9.0.2"
   },
   "devDependencies": {
     "@nuxt/types": "^2.14.6",
